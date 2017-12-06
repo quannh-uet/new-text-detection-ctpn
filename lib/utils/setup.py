@@ -36,7 +36,7 @@ def locate_cuda():
             raise EnvironmentError('The CUDA %s path could not be located in %s' % (k, v))
     return cudaconfig
 
-CUDA = locate_cuda()
+#CUDA = locate_cuda()
 
 
 try:
@@ -50,6 +50,7 @@ def customize_compiler_for_nvcc(self):
     super = self._compile
     def _compile(obj, src, ext, cc_args, extra_postargs, pp_opts):
         print(extra_postargs)
+        """
         if os.path.splitext(src)[1] == '.cu':
             # use the cuda for .cu files
             self.set_executable('compiler_so', CUDA['nvcc'])
@@ -58,7 +59,8 @@ def customize_compiler_for_nvcc(self):
             postargs = extra_postargs['nvcc']
         else:
             postargs = extra_postargs['gcc']
-
+        """
+        postargs = extra_postargs['gcc']
         super(obj, src, ext, cc_args, postargs, pp_opts)
         # reset the default compiler_so, which we might have changed for cuda
         self.compiler_so = default_compiler_so
@@ -71,7 +73,7 @@ class custom_build_ext(build_ext):
     def build_extensions(self):
         customize_compiler_for_nvcc(self.compiler)
         build_ext.build_extensions(self)
-
+"""
 ext_modules = [
     Extension(
         "utils.bbox",
@@ -85,6 +87,7 @@ ext_modules = [
         extra_compile_args={'gcc': ["-Wno-cpp", "-Wno-unused-function"]},
         include_dirs = [numpy_include]
     ),
+               
     Extension('utils.gpu_nms',
         ['nms_kernel.cu', 'gpu_nms.pyx'],
         library_dirs=[CUDA['lib64']],
@@ -100,6 +103,22 @@ ext_modules = [
         include_dirs = [numpy_include, CUDA['include']]
     ),
 ]
+"""
+ext_modules = [
+               Extension(
+                         "utils.bbox",
+                         ["bbox.pyx"],
+                         extra_compile_args={'gcc': ["-Wno-cpp", "-Wno-unused-function"]},
+                         include_dirs = [numpy_include]
+                         ),
+               Extension(
+                         "utils.cython_nms",
+                         ["cython_nms.pyx"],
+                         extra_compile_args={'gcc': ["-Wno-cpp", "-Wno-unused-function"]},
+                         include_dirs = [numpy_include]
+                         ),
+               
+                              ]
 
 setup(
     ext_modules=ext_modules,

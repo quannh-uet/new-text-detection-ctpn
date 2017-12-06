@@ -1,3 +1,6 @@
+Fork from [https://github.com/eragonruan/text-detection-ctpn.git](https://github.com/eragonruan/text-detection-ctpn.git)
+Add for CPU ,if you want apply to GPU ,git clone https://github.com/eragonruan/text-detection-ctpn.git
+
 # text-detection-ctpn
 
 text detection mainly based on ctpn (connectionist text proposal network). It is implemented in tensorflow. I use id card detect as an example to demonstrate the results, but it should be noticing that this model can be used in almost every horizontal scene text detection task. The origin paper can be found [here](https://arxiv.org/abs/1609.03605). Also, the origin repo in caffe can be found in [here](https://github.com/tianzhi0549/CTPN). This repo is mainly based on faster rcnn framework, so there remains tons of useless code. I'm still working on it. For more detail about the paper and code, see this [blog](http://slade-ruan.me/2017/10/22/text-detection-ctpn/)
@@ -64,10 +67,14 @@ python ./ctpn/train_net.py
 `NOTICE:` all the photos used below are collected from the internet. If it affects you, please contact me to delete them.
 <img src="/data/results/002.jpg" width=320 height=240 /><img src="/data/results/003.jpg" width=320 height=240 />
 <img src="/data/results/009.jpg" width=320 height=480 /><img src="/data/results/010.png" width=320 height=320 />
+<img src="/data/results/IMG_0708.png" width=320 height=480 /><img src="/data/results/CgREFFmZV8uAde7ZAABbuGILFDY720.jpg" width=320 height=480 />
+
 ***
 # comparison of horizontal and oriented text connector
 - oriented text connector has been implemented, i's working, but still need futher improvement.
 - left figure is the result for DETECT_MODE H, right figure for DETECT_MODE O
 <img src="/data/results/007.jpg" width=320 height=240 /><img src="/data/oriented_results/007.jpg" width=320 height=240 />
 <img src="/data/results/008.jpg" width=320 height=480 /><img src="/data/oriented_results/008.jpg" width=320 height=480 />
+
+
 ***
