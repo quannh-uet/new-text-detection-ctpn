@@ -68,6 +68,7 @@ python ./ctpn/train_net.py
 <img src="/data/results/002.jpg" width=320 height=240 /><img src="/data/results/003.jpg" width=320 height=240 />
 <img src="/data/results/009.jpg" width=320 height=480 /><img src="/data/results/010.png" width=320 height=320 />
 <img src="/data/results/IMG_0708.png" width=320 height=480 /><img src="/data/results/CgREFFmZV8uAde7ZAABbuGILFDY720.jpg" width=320 height=480 />
+<img src="/data/results/car.jpg" width=320 height=480 />
 
 ***
 # comparison of horizontal and oriented text connector
