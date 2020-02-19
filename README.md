@@ -6,12 +6,21 @@ Add for CPU ,if you want apply to GPU ,git clone https://github.com/eragonruan/t
 text detection mainly based on ctpn (connectionist text proposal network). It is implemented in tensorflow. I use id card detect as an example to demonstrate the results, but it should be noticing that this model can be used in almost every horizontal scene text detection task. The origin paper can be found [here](https://arxiv.org/abs/1609.03605). Also, the origin repo in caffe can be found in [here](https://github.com/tianzhi0549/CTPN). This repo is mainly based on faster rcnn framework, so there remains tons of useless code. I'm still working on it. For more detail about the paper and code, see this [blog](http://slade-ruan.me/2017/10/22/text-detection-ctpn/)
 ***
 # setup
-- requirements: tensorflow1.3, cython0.24, opencv-python, easydict,(recommend to install Anaconda)
-- build the library
+
 ```shell
-cd lib/utils
-chmod +x make.sh
-./make.sh
+$ sudo apt-get update
+$ sudo apt-get -y install gcc libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 libxss1 libxcursor1 libxcomposite1 libasound2 libxi6 libxtst6 libsm6 libxext6 libxrender-dev
+$ git clone https://github.com/ami66/new-text-detection-ctpn.git
+$ wget https://repo.anaconda.com/archive/Anaconda3-2019.10-Linux-x86_64.sh
+$ bash Anaconda3-2019.10-Linux-x86_64.sh 
+$ source /home/ubuntu/anaconda3/bin/activate
+$ pip install tensorflow==1.13.1 opencv-python easydict
+```
+Build
+```shell
+$ cd lib/utils
+$ chmod +x make.sh
+$ ./make.sh
 ```
 ***
 # parameters
